@@ -129,6 +129,7 @@ button:active {
 }
 
 .content {
+  margin-top: 50px;
   position: relative;
    align-items: center;
   justify-content: center;
@@ -145,11 +146,11 @@ button:active {
 
 .content h2:nth-child(1) {
   color: transparent;
-  -webkit-text-stroke: 2px red;
+  -webkit-text-stroke: 2px hsl(261deg 80% 48%);
 }
 
 .content h2:nth-child(2) {
-  color: red;
+  color: hsl(261deg 80% 48%);
   animation: animate 4s ease-in-out infinite;
 }
 
