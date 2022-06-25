@@ -2,11 +2,15 @@
   <div class="container">
     <background src="../assets/diceGif.gif" />
     <div class="text-center pt-12">
-      <h1 class="text-4xl mb-8">THE DICE SHOP</h1>
-      <div v-if="walletStore.address != ''">
+      <h1 class="content">
+            <h2>THE DICE SHOP</h2>
+            <h2>THE DICE SHOP</h2>
+
+      </h1>
+      <div style="margin-top:10%" v-if="walletStore.address != ''">
         <button class="button" @click="() => mintNFTHandler">Mint</button>
       </div>
-      <p v-else>You've not connected your wallet yet</p>
+      <p style="margin-top:10%" v-else>You've not connected your wallet yet</p>
     </div>
     
   </div>
@@ -81,17 +85,102 @@ export default defineComponent({
 });
 </script>
 <style>
+@import url("https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900");
 .container {
   background-image:  url(../assets/diceGif.gif);
   width: 100%;
   height: 100%;
+  background-size: contain;
 }
 .button {
-  background-color: red;
-  font-size: 24px;
-  border-radius: 30px;
-  width: 20%;
-  height: 50px;
-  color: white;
+ padding: 17px 60px;
+ border-radius: 50px;
+ /* border: 0; */
+ background-color: white;
+ box-shadow: rgb(0 0 0 / 5%) 0 0 8px;
+ letter-spacing: 1.5px;
+ text-transform: uppercase;
+ font-size: 15px;
+ transition: all .5s ease;
+ border: 3px solid hsl(261deg 80% 48%) ;
+ /* font-weight: none !important; */
+}
+
+button:hover {
+ letter-spacing: 3px;
+ background-color: hsl(261deg 80% 48%);
+ color: hsl(0, 0%, 100%);
+ box-shadow: rgb(93 24 220) 0px 7px 29px 0px;
+}
+
+button:active {
+ letter-spacing: 3px;
+ background-color: hsl(261deg 80% 48%);
+ color: hsl(0, 0%, 100%);
+ box-shadow: rgb(93 24 220) 0px 0px 0px 0px;
+ transform: translateY(10px);
+ transition: 100ms;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+.content {
+  position: relative;
+   align-items: center;
+  justify-content: center;
+  font-weight: 700;
+}
+
+.content h2 {
+ 
+  color: #fff;
+  font-size: 8em;
+  position: absolute;
+  transform: translate(30%, -50%);
+}
+
+.content h2:nth-child(1) {
+  color: transparent;
+  -webkit-text-stroke: 2px red;
+}
+
+.content h2:nth-child(2) {
+  color: red;
+  animation: animate 4s ease-in-out infinite;
+}
+
+@keyframes animate {
+  0%,
+  100% {
+    clip-path: polygon(
+      0% 45%,
+      16% 44%,
+      33% 50%,
+      54% 60%,
+      70% 61%,
+      84% 59%,
+      100% 52%,
+      100% 100%,
+      0% 100%
+    );
+  }
+
+  50% {
+    clip-path: polygon(
+      0% 60%,
+      15% 65%,
+      34% 66%,
+      51% 62%,
+      67% 50%,
+      84% 45%,
+      100% 46%,
+      100% 100%,
+      0% 100%
+    );
+  }
 }
 </style>
